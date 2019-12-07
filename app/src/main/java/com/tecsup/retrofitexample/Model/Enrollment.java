@@ -4,26 +4,54 @@ import java.util.List;
 
 public class Enrollment {
     private int course_id;
-    private boolean enrollment_state;
-    private List<Grades> gradesList;
+    private String enrollment_state;
+    private Grades grades;
+    private User user;
 
     public int getCourse_id() {
         return course_id;
     }
 
-    public boolean isEnrollment_state() {
+    public String isEnrollment_state() {
         return enrollment_state;
     }
 
-    public List<Grades> getGradesList() {
-        return gradesList;
+    public Grades getGrades() {
+        return grades;
     }
 
-    public static class Grades{
-        private Double final_score;
+    public User getUser() {
+        return user;
+    }
 
-        public Double getFinal_score() {
-            return final_score;
+    @Override
+    public String toString() {
+        return "Enrollment{" +
+                "course_id=" + course_id +
+                ", enrollment_state=" + enrollment_state +
+                ", grades=" + grades +
+                ", user=" + user +
+                '}';
+    }
+
+    public class Grades{
+        private double current_score;
+
+        public double getCurrent_score() {
+            return current_score;
+        }
+    }
+
+    public class User{
+        private String name;
+        private String integration_id;
+
+        public String getName() {
+            return name;
+        }
+
+        public String getIntegration_id() {
+            return integration_id;
         }
     }
 }

@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.tecsup.retrofitexample.Interface.ApiService;
@@ -34,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
         courseList.setAdapter(new CourseAdapter());
 
         initialize();
+
     }
 
     public void initialize(){
+
+
         ApiService service = ApiServiceGenerator.createService(ApiService.class);
 
         Call<List<Course>> call = service.getCourses();
